@@ -20,7 +20,7 @@ app.get('*', (req, res) => {
   res.send({
     message: 'Medic Up and Running', 
     status: 'success'
-  })
-})
+  });
+});
 
 module.exports = app;
