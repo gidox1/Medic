@@ -1,0 +1,38 @@
+{
+  "name": "medic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gidox1/Medic.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gidox1/Medic/issues"
+  },
+  "homepage": "https://github.com/gidox1/Medic#readme",
+  "dependencies": {
+    "bcryptjs": "2.4.3",
+    "cors": "2.8.5",
+    "custom-error-generator": "7.0.0",
+    "dotenv": "10.0.0",
+    "express": "4.17.1",
+    "jsonwebtoken": "8.5.1",
+    "mongoose": "6.0.10",
+    "nodemon": "2.0.13",
+    "shortid": "2.2.16",
+    "turbo-logger": "1.1.9"
+  },
+  "devDependencies": {
+    "http-status": "1.5.0",
+    "joi": "17.4.2",
+    "lodash": "4.17.21"
+  }
+}
