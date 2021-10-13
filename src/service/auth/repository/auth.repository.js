@@ -17,7 +17,7 @@ class AuthRepository {
    */
   async getUserByEmail(email) {
     try {
-      return await UserModel.findOne({ email });
+      return await UserModel.findOne({ email: email, status: 1 });
     }
     catch(E) {
       this.logger.error('[AuthRepository] - getUserByEmail - An error occured while getting user by email');
@@ -74,6 +74,21 @@ class AuthRepository {
     ? PatientsModel
     : NursesSchema;
     return await Model.findOne({email}).populate("user")
+  }
+
+    /**
+   * Return User Collection
+   * @param {String} email 
+   */
+  async getUserById(id) {
+    try {
+      return await UserModel.findOne({ _id: id, status: 1 });
+    }
+    catch(E) {
+      this.logger.error('[AuthRepository] - getUserById - An error occured while getting user by email');
+      this.logger.error(JSON.stringify(E));
+      throw E;
+    }
   }
 }
 

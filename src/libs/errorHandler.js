@@ -1,5 +1,5 @@
 const httpStatus = require('http-status');
-const errors = require('../../libs/error');
+const errors = require('./error');
 
 const Handler = (error, res) => {
   console.log("Error handler log: ", error)
