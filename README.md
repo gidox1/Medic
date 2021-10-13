@@ -7,7 +7,7 @@ Speak with qualified Nurses about your medical issues and concerns
 
 ## How to set up with Docker
 - Clone repo
-- run docker-compose up
+- run `docker-compose up`
 
 Technologies
 - Nodejs
