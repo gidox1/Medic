@@ -16,3 +16,7 @@ Technologies
 - Zoom API
 
 Refer to the docs folder for documentation
+
+TO DO:
+- Set up Swaggar Docs
+- Set up caching layer with Redis
