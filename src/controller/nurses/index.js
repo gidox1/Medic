@@ -4,9 +4,9 @@ const shortid = require('shortid');
 const errorHandler = require('../../libs/errorHandler');
 
 /**
- * Authentication Controller Class
+ * Nurse Controller Class
  */
-class AuthController {
+class NurseController {
 
   constructor(logger, service) {
     this.logger = logger;
@@ -14,19 +14,19 @@ class AuthController {
   }
 
   /**
-   * Register a user
+   * Get Nurses
    * @param {object} req Restify request object
    * @param {object} res Restify response object
    * @return {callback}
   */
-  async register(req, res) {
+  async getNurses(req, res) {
     const reqId = shortid.generate();
-    this.logger.log(`started process of registrating new user - reqId: ${reqId}`);
+    this.logger.log(`started process of getting nurses - reqId: ${reqId}`);
 
-    return await this.service.register(req.body)
+    return await this.service.getNurses(req.query)
       .then((jsonResponse) => {
         return res.status(201).json({
-          message: 'user created successfully',
+          message: 'fetched nurses successfully',
           data: jsonResponse
         });
       })
@@ -41,15 +41,27 @@ class AuthController {
    * @param {object} res Restify response object
    * @return {callback}
   */
-  async login(req, res) {
+  async createDiagnosis(req, res) {
     const reqId = shortid.generate();
-    const { email, password } = req.body;
-    this.logger.log(`started process of logging in for user with email ${email} - reqId: ${reqId}`);
+    const { patient_id } = req.params;
+    const {
+      subjective_component,
+      objective_component,
+      assesment,
+      plan
+    } = req.body;
+    this.logger.log(`started process of creating diagnosis for user with id ${patient_id} - reqId: ${reqId}`);
 
-    return await this.service.login(email, password, reqId)
+    return await this.service.createDiagnosis({
+        subjective_component,
+        objective_component,
+        assesment,
+        plan,
+        patient_id
+      })
       .then((jsonResponse) => {
         return res.status(201).json({
-          message: 'user created successfully',
+          message: 'successfully created patient diagnosis',
           data: jsonResponse
         });
       })
@@ -59,4 +71,4 @@ class AuthController {
   }
 }
 
-module.exports = AuthController;
+module.exports = NurseController;

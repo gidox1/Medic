@@ -52,14 +52,15 @@ class AuthService {
    * @param {object} res Restify response object
    * @return {callback}
   */
-  async login(email, password) {
+  async login(email, password, reqId) {
     try {
       const userExists = await this.repository.getUserByEmail(email);
       if(!userExists) {
         throw new Errors.NotFoundError('user does not exist');
       }
       await comparePassword(password, userExists.password);
-      const responseData = await this.repository.getRoleRelation(email, userExists.role)
+      const responseData = await this.repository.getRoleRelation(email, userExists.role);
+      this.logger.log(`successfully logged in user - reqId: ${reqId}`);
       return {
         ...responseData.toJSON(),
         token: await getToken(userExists.toJSON())

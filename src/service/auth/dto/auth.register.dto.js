@@ -31,7 +31,8 @@ class RegisterDTO {
       last_name: this.data.last_name,
       email: this.data.email,
       password: hashed,
-      role: this.data.role
+      role: this.data.role,
+      status: true
     }
   }
 

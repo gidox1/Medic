@@ -29,6 +29,10 @@ const UserSchema = new mongoose.Schema({
     default: 'patient',
     required: true
   },
+  status: {
+    type: Boolean,
+    default: true 
+  },
 }, {
   timestamps: true
 });
