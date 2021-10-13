@@ -36,7 +36,7 @@ class NurseController {
   }
 
   /**
-   * Authenticate a user
+   * Create Diagnosis
    * @param {object} req Restify request object
    * @param {object} res Restify response object
    * @return {callback}

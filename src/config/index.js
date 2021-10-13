@@ -7,6 +7,6 @@ module.exports = {
   test_database: {
     mongo_user: 'root',
     mongo_password: 'rootpassword',
-    uri: process.env.TEST_DATABASE || 'mongodb+srv://ever:Ever2000@cluster0.ztp8w.mongodb.net/test'
+    uri: process.env.TEST_DATABASE
   }
 };
